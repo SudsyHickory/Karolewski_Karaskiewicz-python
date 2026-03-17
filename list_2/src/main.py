@@ -6,8 +6,6 @@ def exc2():
     lines_number = 0
     empty_lines = 0
     
-    sys.stdin.reconfigure(encoding='utf-8', errors='replace')
-    sys.stdout.reconfigure(encoding='utf-8')
     for line in sys.stdin:
         
         lines_number +=1
