@@ -1,5 +1,5 @@
 import sys
-import io
+import os
 
 def exc2():
     in_preamble = True
@@ -37,6 +37,9 @@ def main():
     
     try:
         exc2() 
+    except BrokenPipeError:
+        sys.stdout = open(os.devnull, "w")
+        return
     except Exception as e:
         sys.stderr.write(f"Błąd: {e}\n")
 
