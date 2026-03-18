@@ -30,6 +30,11 @@ def get_sentences():
             sentence = ""
             end_of_lines_counter = 0
             
+
+def print_sentences(sentences):
+    for sentence in sentences:
+        sys.stdout.write(sentence + "\n")
+
 def main():
     try:
         for s in get_sentences():
