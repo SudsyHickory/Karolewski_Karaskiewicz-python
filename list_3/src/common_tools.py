@@ -14,6 +14,17 @@ IDX_HOST = 7
 IDX_URI = 8
 IDX_STATUS_CODE = 9
 
+KEY_TS = "ts"
+KEY_UID = "uid"
+KEY_ORIG_H = "orig_h"
+KEY_ORIG_P = "orig_p"
+KEY_RESP_H = "resp_h"
+KEY_RESP_P = "resp_p"
+KEY_METHOD = "method"
+KEY_HOST = "host"
+KEY_URI = "uri"
+KEY_STATUS = "status_code"
+
 #konwersja danych dla znaczników czasowych
 def parse_timestamp(value):
 
@@ -67,6 +78,21 @@ def parse_line(line):
 
     #zwracamy krotkę
     return (ts, uid, id_orig_h, id_orig_p, id_resp_h, id_resp_p, method, host, uri, status_code)
+
+def entry_to_dict(entry):
+    # nazwa -> wartość z konkretnego indeksu krotki
+    return {
+        KEY_TS: entry[IDX_TS],
+        KEY_UID: entry[IDX_UID],
+        KEY_ORIG_H: entry[IDX_ID_ORIG_H],
+        KEY_ORIG_P: entry[IDX_ID_ORIG_P],
+        KEY_RESP_H: entry[IDX_ID_RESP_H],
+        KEY_RESP_P: entry[IDX_ID_RESP_P],
+        KEY_METHOD: entry[IDX_METHOD],
+        KEY_HOST: entry[IDX_HOST],
+        KEY_URI: entry[IDX_URI],
+        KEY_STATUS: entry[IDX_STATUS_CODE]
+    }
 
 def read_log():
     
