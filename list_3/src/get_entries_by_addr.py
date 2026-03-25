@@ -1,5 +1,5 @@
 import sys
-from common_tools import read_log, print_entries, IDX_ID_RESP_H, IDX_HOST
+from common_tools import read_log, print_entries, IDX_ID_ORIG_H, IDX_HOST
 
 def get_entries_by_addr(log, addr):
 
@@ -14,7 +14,7 @@ def get_entries_by_addr(log, addr):
 
     for entry in log:
 
-        if entry[IDX_ID_RESP_H] == addr or entry[IDX_HOST] == addr:
+        if entry[IDX_ID_ORIG_H] == addr or entry[IDX_HOST] == addr:
             result.append(entry)
 
     return result
