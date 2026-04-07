@@ -1,0 +1,23 @@
+[
+    {
+        "timestamp": "2026-04-07T13:53:16.187364",
+        "source": ".\\Simple.jpg",
+        "result": "converted\\20260407-Simple.png",
+        "format": "png",
+        "tool": "imagemagick"
+    },
+    {
+        "timestamp": "2026-04-07T13:55:26.198930",
+        "source": ".\\file_example_MP4_480_1_5MG.mp4",
+        "result": "converted\\20260407-file_example_MP4_480_1_5MG.mp3",
+        "format": "mp3",
+        "tool": "ffmpeg"
+    },
+    {
+        "timestamp": "2026-04-07T13:55:26.276850",
+        "source": ".\\Simple.jpg",
+        "result": "converted\\20260407-Simple.mp3",
+        "format": "mp3",
+        "tool": "imagemagick"
+    }
+]
