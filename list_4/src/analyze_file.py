@@ -24,8 +24,9 @@ def get_most_common_character(content):
         return None
     
     counter = Counter(filtered)
+    most_common = counter.most_common(1)[0][0]
 
-    return counter.most_common(1)[0][0]
+    return most_common, dict(counter)
 
 #funkcja zwracająca najczęściej występujące słowo w pliku
 def get_most_common_word(content):
@@ -36,8 +37,9 @@ def get_most_common_word(content):
         return None
     
     counter = Counter(words)
+    most_common = counter.most_common(1)[0][0]
 
-    return counter.most_common(1)[0][0]
+    return most_common, dict(counter)
 
 #funkcja analizująca plik i zwracająca wynik jako słownik
 def analyze_file(file_path):
@@ -49,23 +51,28 @@ def analyze_file(file_path):
 
     file.close()
 
+    most_common_char, chars_dict = get_most_common_character(content)
+    most_common_word, words_dict = get_most_common_word(content)
+
     result = {
         "file_path": file_path,
         "total_characters": count_characters(content),
         "total_words": count_words(content),
         "total_lines": count_lines(lines),
-        "most_common_character": get_most_common_character(content),
-        "most_common_word": get_most_common_word(content),
+        "most_common_character": most_common_char,
+        "chars_freq": chars_dict,
+        "most_common_word": most_common_word,
+        "words_freq": words_dict
     }
 
     return result
 
 def main():
 
-    sys.stdout.write("Podaj plik do analizy: ")
-    sys.stdout.flush() #flush() wymusza natychmiastowe wysłanie danych z bufora na wyjście - czyli powyższego tekstu
+    file_path = sys.stdin.readline().strip() #czytamy sciezke
 
-    file_path = sys.stdin.readline().strip()
+    if not file_path: 
+        return
 
     if not os.path.isfile(file_path):
         sys.stderr.write(f"Błąd: plik '{file_path}' nie istnieje")
